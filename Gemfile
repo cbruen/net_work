@@ -25,6 +25,8 @@ group :test, :development do
   gem "guard-rspec", require: false
   gem "thin"
   gem 'tzinfo-data', platform: [:mingw, :mswin, :x64_mingw]
+  gem 'omniauth'
+  gem 'omniauth-facebook'
 end
 
 gem "bootstrap-sass", "~> 3.1.1"
