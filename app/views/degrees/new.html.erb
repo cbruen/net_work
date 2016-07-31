@@ -1,6 +1,5 @@
 
 
-<%= binding.pry %>
 <%= form_for @degree  do |f| %>
 	
 
@@ -12,7 +11,7 @@
 <%= f.text_field :gpa %>
 </br>
 
-<%= f.fields_for :schools do |sch| %>
+<%= f.fields_for :school do |sch| %>
 
 	<%= sch.label "School Name" %>
 	<%= sch.text_field :name, list: "schools_autocomplete"%>

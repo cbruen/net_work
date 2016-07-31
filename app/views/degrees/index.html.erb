@@ -1,0 +1,13 @@
+
+<h1><%= @user.name %></h1>
+</br>
+
+<% @user.degrees.each do |deg| %>
+
+<h3><%= deg.school.name %> (<%= deg.school.city %>)</h5>
+</br>
+
+<p><%= deg.name %></p>
+<p>GPA: <%= deg.gpa %></p>
+	
+<% end %>
