@@ -2,7 +2,7 @@
 class UsersController < ApplicationController
 	
 	def new
-		@user = User.first
+		@user = current_user
 	end
 	
 end
