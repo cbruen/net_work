@@ -1,0 +1,36 @@
+
+
+<%= binding.pry %>
+<%= form_for @degree  do |f| %>
+	
+
+<%= f.label "Degree" %>
+<%= f.text_field :name %>
+</br>
+
+<%= f.label :gpa %>
+<%= f.text_field :gpa %>
+</br>
+
+<%= f.fields_for :schools do |sch| %>
+
+	<%= sch.label "School Name" %>
+	<%= sch.text_field :name, list: "schools_autocomplete"%>
+	<datalist id="schools_autocomplete">
+	  <%= School.all.each do |school| %>
+	    <option value="<%= school.name %>">
+	  <% end %>
+	</datalist>
+	</br>
+	
+	<%= sch.label :city %>
+	<%= sch.text_field :city %>
+
+<% end %>
+
+</br>
+
+<%= f.submit %>
+	
+	
+<% end %>
