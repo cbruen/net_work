@@ -1,7 +1,7 @@
-
+<%= binding.pry %>
 
 <%= form_for @degree  do |f| %>
-	
+
 
 <%= f.label "Degree" %>
 <%= f.text_field :name %>
@@ -21,7 +21,7 @@
 	  <% end %>
 	</datalist>
 	</br>
-	
+
 	<%= sch.label :city %>
 	<%= sch.text_field :city %>
 
@@ -30,6 +30,6 @@
 </br>
 
 <%= f.submit %>
-	
-	
+
+
 <% end %>

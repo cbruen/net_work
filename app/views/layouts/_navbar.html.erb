@@ -1,0 +1,6 @@
+
+<% if logged_in? %>
+<%= link_to "Sign out", session_path(current_user), method: :delete %>
+<% else %>
+<a href='/auth/facebook'>Login with Facebook</a>
+<% end %>

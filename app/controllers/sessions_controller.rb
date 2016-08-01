@@ -11,6 +11,11 @@ class SessionsController < ApplicationController
       redirect_to degrees_path
   end
 
+  def delete
+      session.destroy :user_id
+      redirect_to root_path
+  end
+
   def auth
       request.env['omniauth.auth']
   end
