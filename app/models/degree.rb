@@ -7,7 +7,6 @@ class Degree < ActiveRecord::Base
 	validates :school_id, presence: true
 
 	def school_attributes=(att)
-		binding.pry
 		if School.find_or_create_by(name: att[:name], city: att[:city]).valid?
 			self.school = School.find_or_create_by(name: att[:name], city: att[:city])
 			self.save
