@@ -5,7 +5,8 @@ class DegreesController < ApplicationController
 
 	def index
 		@user = current_user
-		binding.pry
+		@degree = Degree.new
+		@degree.school = School.new
 	end
 
 	def new
@@ -17,13 +18,12 @@ class DegreesController < ApplicationController
 	end
 
 	def create
-		@user = current_user
-		binding.pry
+		@user = User.find(params[:user_id])
 		if Degree.create(degree_params).valid?
 			@degree = Degree.create(degree_params)
 			@user.degrees << @degree
 			@user.save
-			redirect_to degrees_path
+			redirect_to user_path(@user)
 		else
 			flash[:error] = "You must enter a school name"
 			@degree = Degree.new
