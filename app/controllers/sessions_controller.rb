@@ -9,8 +9,10 @@ class SessionsController < ApplicationController
       if auth.nil?
         @user = User.find_by(email: params[:user][:email])
           if @user.nil?
+            @user = User.new
             flash[:error] = "Email required"
-            render :new
+            render "sessions/new"
+            return
           end
       else
         @user = User.find_or_create_by(uid: auth[:uid]) do |f|
