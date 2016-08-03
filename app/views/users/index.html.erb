@@ -1,7 +1,11 @@
 
 <%= @users.each do |user| %>
 
+<% if user.degrees.first && user.degrees.first.school %>
 <h3><%=link_to user.name, user_path(user)%> (<%=user.degrees.first.school.name%>)</h3>
+<% else %>
+<h3><%=link_to user.name, user_path(user)%></h3>
+<% end %>
 </br>
 
 <% end %>

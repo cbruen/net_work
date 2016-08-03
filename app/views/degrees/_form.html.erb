@@ -1,11 +1,23 @@
 <%= form_for  [user, degree]  do |f| %>
 
-  <%= f.label "Degree" %>
-  <%= f.text_field :name %>
-  </br>
-  <%= f.label :gpa %>
-  <%= f.text_field :gpa %>
-  </br>
+<% if user.errors[:name].empty? %>
+    <div class="field">
+<% else %>
+    <div class="field_with_errors">
+<% end %>
+    <%= f.label "Degree" %>
+    <%= f.text_field :name %>
+  </div>
+
+<% if user.errors[:name].empty? %>
+  <div class="field">
+<% else %>
+  <div class="field_with_errors">
+<% end %>
+    <%= f.label :gpa %>
+    <%= f.text_field :gpa %>
+  </div>
+
   <%= f.fields_for :school do |sch| %>
 	  <%= sch.label "School Name" %>
 	  <%= sch.text_field :name, list: "schools_autocomplete"%>
