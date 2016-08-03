@@ -2,8 +2,8 @@
 class WelcomeController < ApplicationController
 
   def home
-    binding.pry
-    redirect_to user_path(current_user)
+    redirect_to new_user_path
+    #redirect_to user_path(current_user)
   end
 
 end
