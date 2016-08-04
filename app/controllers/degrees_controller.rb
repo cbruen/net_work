@@ -22,6 +22,8 @@ class DegreesController < ApplicationController
 		if Degree.create(degree_params).valid?
 			@degree = Degree.create(degree_params)
 			@user.degrees << @degree
+	
+			binding.pry
 			@user.save
 			redirect_to user_path(@user)
 		else
@@ -35,7 +37,7 @@ class DegreesController < ApplicationController
 	private
 
 	def degree_params
-		params.require(:degree).permit(:name, :gpa, school_attributes: [:name, :city])
+		params.require(:degree).permit(:name, :gpa, :year_completed, school_attributes: [:name, :city])
 	end
 
 	def authenticate

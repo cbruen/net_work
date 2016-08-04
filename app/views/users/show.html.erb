@@ -12,6 +12,6 @@
 </br>
 
 <% if current_user == @user %>
-<%= render partial: 'errors', locals: {record: @user}
+<%= render partial: 'errors', locals: {record: @user} %>
 <%= render partial: 'degrees/form', locals: {user: @user, degree: @degree} %>
 <% end %>

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-	has_many :degrees
+	has_many :degrees, -> {order 'year_completed DESC'}
 	has_many :schools, through: :degrees
 
 	has_secure_password
