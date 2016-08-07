@@ -6,6 +6,6 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	def self.minimum_gpa(gpa)
-		self.all.select {|x| x.gpa >= gpa}
+		self.all.select {|x| x.degrees.first.gpa >= gpa if x.degrees.first}
 	end
 end

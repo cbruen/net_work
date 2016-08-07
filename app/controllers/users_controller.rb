@@ -2,8 +2,8 @@
 class UsersController < ApplicationController
 
   def index
-		@users = User.all
-	end
+    !params[:min_gpa] ? @users = User.all : @users = User.minimum_gpa(params[:min_gpa].to_f)
+  end
 
 	def show
 		@user = User.find(params[:id])
