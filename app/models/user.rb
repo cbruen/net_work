@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
 	validates :email, presence: true
+	validates :name, presence: true
 
 	has_many :degrees, -> {order 'year_completed DESC'}
 	has_many :schools, through: :degrees
