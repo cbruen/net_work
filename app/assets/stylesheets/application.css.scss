@@ -17,19 +17,38 @@
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
  */
-@import "bootstrap";
+//@import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 body {
   padding-top: 70px;
   padding-bottom: 30px;
 }
 
-.theme-dropdown .dropdown-menu {
-  position: static;
-  display: block;
-  margin-bottom: 20px;
+
+
+.field_with_errors {
+  padding: 5px;
+  background-color: red;
+  display: table;
 }
 
-.theme-showcase > p > .btn {
-  margin: 5px 0;
+.field {
+  display: table;
+  padding: 5px;
+}
+
+.nav {
+  float: left;
+  margin: 0 10px;
+}
+
+form {
+  clear: left;
+  margin: 40px 10px;
+}
+
+label {
+  float: left;
+  width: 50%;
+  padding-right: 5%;
 }
