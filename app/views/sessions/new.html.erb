@@ -1,4 +1,4 @@
 
-<%= render partial: 'users/errors', locals: {user: @user} %>
+<%= render partial: 'users/errors', locals: {record: @user} %>
 
 <%= render partial: 'users/form', locals: {user: @user, url: {:url => url_for(:controller => 'sessions', :action => "create")}} %>

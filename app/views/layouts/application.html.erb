@@ -9,7 +9,9 @@
 </head>
 <body>
 <%= render 'layouts/navbar' %>
-<%= render 'layouts/messages' %>
+<div id="messages">
+  <%= render 'layouts/messages' %>
+</div>
 <div class="body">
   <%= yield %>
 </div>
