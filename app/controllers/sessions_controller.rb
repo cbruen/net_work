@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-      binding.pry
+
       if auth.nil?
         @user = User.find_by(email: params[:user][:email])
           if @user.nil?
@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
           f.name = auth[:info][:name]
           f.email = auth[:info][:email]
         end
+        @user.save(:validate=>false)
       end
       flash[:error].clear if flash[:error]
       session[:user_id] = @user.id
