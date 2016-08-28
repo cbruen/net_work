@@ -9,8 +9,14 @@ class SessionsController < ApplicationController
       if auth.nil?
         @user = User.find_by(email: params[:user][:email])
           if @user.nil?
+
             @user = User.new
-            flash[:error] = "Email required"
+            flash[:error] = "User not found"
+            render "sessions/new"
+            return
+          elsif !@user.authenticate(params[:user][:password]) || params[:password] != params[:password_confirmation]
+            @user = User.new
+            flash[:error] = "Invalid password"
             render "sessions/new"
             return
           end
@@ -20,6 +26,7 @@ class SessionsController < ApplicationController
           f.email = auth[:info][:email]
         end
       end
+      flash[:error].clear if flash[:error]
       session[:user_id] = @user.id
       redirect_to user_path(@user)
   end
