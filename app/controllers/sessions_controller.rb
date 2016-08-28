@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+      binding.pry
       if auth.nil?
         @user = User.find_by(email: params[:user][:email])
           if @user.nil?

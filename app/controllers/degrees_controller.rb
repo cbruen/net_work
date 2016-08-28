@@ -4,14 +4,17 @@ class DegreesController < ApplicationController
 	before_action :authenticate
 
 	def index
-		@user = current_user
+		@user = User.find(params[:user_id])
 		@degree = Degree.new
 		@degree.school = School.new
 	end
 
 	def new
 
-		@user = current_user
+		@user = User.find(params[:user_id])
+		if @user != current_user
+			redirect_to(user_path(current_user))
+		end
 		@degree = Degree.new
 		@degree.school = School.new
 
@@ -22,7 +25,7 @@ class DegreesController < ApplicationController
 		if Degree.create(degree_params).valid?
 			@degree = Degree.create(degree_params)
 			@user.degrees << @degree
-	
+
 			@user.save
 			redirect_to user_path(@user)
 		else
