@@ -1,6 +1,11 @@
 
 <% if logged_in? %>
-<%= link_to "Sign out", session_path(current_user.id), :method => "delete" %>
+<div class="nav">
+  <%= link_to "All users", users_path %>
+</div>
+<div class="nav">
+  <%= link_to "Sign out", session_path(current_user.id), :method => "delete" %>
+</div>
 <% else %>
 <div class="nav">
   <a href='/auth/facebook'>Login with Facebook</a>

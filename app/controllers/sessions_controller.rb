@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
       if auth.nil?
         @user = User.find_by(email: params[:user][:email])
           if @user.nil?
-
             @user = User.new
             flash[:error] = "User not found"
             render "sessions/new"
