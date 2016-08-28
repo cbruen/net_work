@@ -20,7 +20,7 @@
 //@import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 body {
-  padding-top: 70px;
+  padding-top: 30px;
   padding-bottom: 30px;
 }
 
@@ -58,4 +58,8 @@ label {
   font-style: italic;
   font-size: 1.5em;
   color: red;
+}
+
+.body {
+  margin: 40px 0;
 }

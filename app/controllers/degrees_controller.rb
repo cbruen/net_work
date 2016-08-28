@@ -23,7 +23,6 @@ class DegreesController < ApplicationController
 			@degree = Degree.create(degree_params)
 			@user.degrees << @degree
 	
-			binding.pry
 			@user.save
 			redirect_to user_path(@user)
 		else
