@@ -5,7 +5,7 @@ INSTALLATION
 
 Fork and clone this repository to your local environment and run bundle install to get started. Next, fun ‘rake db:migrate’ to create the necessary tables in the database. Enter ‘rails s’ to run the app on your local server.
 
-To use the Facebook oauth login, you will have to set the environment variables, ‘FACEBOOK_APP_ID’ and ‘FACWBOOK_SECRET’ with your own facebook application values, as I do not have these posted publicly. These variables may be set with the Figaro gem that is included in the Gemfile - run ‘figaro install’ in your command line to create the file, ‘application.yml’, in the config directory.
+To use the Facebook oauth login, you will have to set the environment variables, ‘FACEBOOK_APP_ID’ and ‘FACEBOOK_SECRET’ with your own facebook application values, as I do not have these posted publicly. These variables may be set with the Figaro gem that is included in the Gemfile - run ‘figaro install’ in your command line to create the file, ‘application.yml’, in the config directory.
 
 
 CONTRIBUTIONS
