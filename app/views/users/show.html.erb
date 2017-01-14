@@ -1,18 +1,18 @@
 <h1><%= @user.name %></h1>
 </br>
 </br>
-<% @user.degrees.each do |deg| %>
-<h3><%= deg.school.name %> (<%= deg.school.city %>)</h5>
-</br>
-<p><%= deg.name %></p>
-<p>GPA: <%= deg.gpa %></p>
-<p><%= deg.year_completed %></p>
-</br>
-</br>
-<% end %>
+<div data-id="<%=@user.id%>" id="degrees">
+</div>
 </br>
 
 <% if current_user == @user %>
 <%= render partial: 'errors', locals: {record: @user} %>
 <%= render partial: 'degrees/form', locals: {user: @user, degree: @degree} %>
 <% end %>
+
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {
+    add();
+  });
+</script>
