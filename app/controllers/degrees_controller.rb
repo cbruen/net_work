@@ -5,8 +5,13 @@ class DegreesController < ApplicationController
 
 	def index
 		@user = User.find(params[:user_id])
+		@degrees = @user.degrees if @user.degrees
 		@degree = Degree.new
 		@degree.school = School.new
+		respond_to do |format|
+			format.html {render :index}
+			format.json {render json: @degrees}
+		end
 	end
 
 	def new
