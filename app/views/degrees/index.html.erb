@@ -1,8 +1,8 @@
 <h1><%= @user.name %></h1>
 </br>
 </br>
- <button data-id="<%=@user.id%>" class="js-more">Show Degrees</button>
- <div id="degrees">
+
+ <div data-id="<%=@user.id%>" id="degrees">
 
  </div>
 
@@ -13,23 +13,24 @@
 <script type="text/javascript" charset="utf-8">
 
   $(document).ready(function() {
-    $(".js-more").on('click', function() {
-      var id = $(this).data("id");
-      var url = "/users/" + id + "/degrees";
-      var method = "GET";
-      $.ajax({
-        url: url,
-        method: method,
-        dataType: "json"
-      }).done(function(data) {
-        data["degrees"].forEach(function(x) {
-          var list = "<h3>" + x["school"]["name"] + " (" + x["school"]["city"] + ")</h3>";
-          list += "<p>" + x["name"] + "</p>";
-          list += "<p>GPA: " + x["gpa"] + "</p></br>";
-          $('#degrees').append(list);
-        });
-      });
-    });
+    add();
   });
 
+function add() {
+  var id = $('#degrees').data("id");
+  var url = "/users/" + id + "/degrees";
+  var method = "GET";
+  $.ajax({
+    url: url,
+    method: method,
+    dataType: "json"
+  }).done(function(data) {
+    data["degrees"].forEach(function(x) {
+      var list = "<h3>" + x["school"]["name"] + " (" + x["school"]["city"] + ")</h3>";
+      list += "<p>" + x["name"] + "</p>";
+      list += "<p>GPA: " + x["gpa"] + "</p></br>";
+      $('#degrees').append(list);
+    });
+  });
+}
 </script>
