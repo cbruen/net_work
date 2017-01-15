@@ -17,30 +17,20 @@
   $(document).ready(function() {
     add();
     createList();
+    nextUser();
+
+  });
+
+
+  function nextUser() {
     $('.js-next').on('click', function(e) {
         e.preventDefault();
         var id = $('#degrees').data("id");
         var indi = list.indexOf(id);
          list[indi+1] <= list[list.length-1] ? id = list[indi+1] : id = list[0];
-
         $('#degrees').data("id", id);
-        var url = "/users/" + id;
-        $.ajax({
-          url: url,
-          method: "GET",
-          dataType: "json"
-        }).done(function(data) {
-          $('#name').text(data["user"]["name"]);
-            $('#degrees').html("");
-          data["user"]["degrees"].forEach(function(x) {
-            var list = "<h3>" + x["school"]["name"] + " (" + x["school"]["city"] + ")</h3>";
-            list += "<p>" + x["name"] + "</p>";
-            list += "<p>GPA: " + x["gpa"] + "</p></br>";
-            $('#degrees').append(list);
-          });
-
-        });
+        var url = "/users/" + id + "/degrees";
+        addDegrees(url);
     });
-
-  });
+  }
 </script>
