@@ -1,4 +1,4 @@
-<h1><%= @user.name %></h1>
+<h1 id="name"><%= @user.name %></h1>
 </br>
 </br>
 <div data-id="<%=@user.id%>" id="degrees">
@@ -16,8 +16,22 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
     add();
-    $('.js-next').on('click', function() {
-      
+
+    $('.js-next').on('click', function(e) {
+        e.preventDefault();
+        var id = $('#degrees').data("id")+1;
+        var url = "/users/" + id;
+        $.ajax({
+          url: url,
+          method: "GET",
+          dataType: "json"
+        }).done(function(data) {
+          console.log(data["user"])
+          $('#name').text(data["user"]["name"]);
+          $('#degrees').attr('data-id', data["user"]["id"]);
+
+        });
     });
+    add();
   });
 </script>

@@ -11,6 +11,7 @@ function test() {
 
 function add() {
   var id = $('#degrees').data("id");
+  console.log(id);
   var url = "/users/" + id + "/degrees";
   var method = "GET";
   $.ajax({
