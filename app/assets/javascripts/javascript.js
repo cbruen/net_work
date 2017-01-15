@@ -37,10 +37,14 @@ function addDegrees(url) {
   });
 }
 
-function Degree(name, gpa, year, school, city ) {
+
+  function Degree(name, gpa, year, school, city ) {
   this.name = name;
   this.gpa = gpa;
   this.year = year;
   this.school = school;
   this.city = city;
 }
+  Degree.prototype.sayMessage = function() {
+    return "Your degree in " + this.name + " from " + this.school + " has been added!";
+  }

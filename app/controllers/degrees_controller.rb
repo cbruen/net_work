@@ -32,7 +32,7 @@ class DegreesController < ApplicationController
 			@user.degrees << @degree
 
 			@user.save
-			redirect_to user_path(@user)
+			render json: @degree
 		else
 			flash[:error] = "You must enter a school name"
 			@degree = Degree.new

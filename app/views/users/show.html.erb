@@ -3,6 +3,8 @@
 </br>
 <div data-id="<%=@user.id%>" id="degrees">
 </div>
+<div class="message">
+</div>
 </br>
 
 <% if current_user == @user %>
@@ -18,6 +20,22 @@
     add();
     createList();
     nextUser();
+    $('form').submit(function(event) {
+      event.preventDefault();
+      var fields = $(this).serialize();
+      var id = $('#degrees').data("id");
+      $.post("/users/" + id + "/degrees", fields).done(function(data) {
+
+          add();
+          var name = data["degree"]["name"];
+          var gpa = data["degree"]["gpa"];
+          var year = data["degree"]["year"];
+          var school = data["degree"]["school"]["name"];
+          var city = data["degree"]["school"]["city"];
+          var deg = new Degree(name, gpa, year, school, city);
+          $('.message').text(deg.sayMessage());
+      });
+    });
 
   });
 
