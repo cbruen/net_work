@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 
   def index
     !params[:min_gpa] ? @users = User.where.not(id: current_user.id) : @users = User.minimum_gpa(params[:min_gpa].to_f, current_user.id)
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @users}
+    end
   end
 
 	def show

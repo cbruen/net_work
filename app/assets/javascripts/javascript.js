@@ -1,17 +1,11 @@
 $(document).ready(function() {
-//  test();
 
 });
 
-function test() {
-  console.log("AHH");
-}
-
-
+var list = 1;
 
 function add() {
   var id = $('#degrees').data("id");
-  console.log(id);
   var url = "/users/" + id + "/degrees";
   var method = "GET";
   $.ajax({
@@ -25,5 +19,15 @@ function add() {
       list += "<p>GPA: " + x["gpa"] + "</p></br>";
       $('#degrees').append(list);
     });
+  });
+}
+
+function createList() {
+  $.ajax({
+    url: "/users",
+    method: "GET",
+    dataType: "json"
+  }).done(function(data){
+    list = data["users"].map(function(x) {return x["id"]});
   });
 }
