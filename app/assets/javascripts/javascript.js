@@ -36,3 +36,11 @@ function addDegrees(url) {
     });
   });
 }
+
+function Degree(name, gpa, year, school, city ) {
+  this.name = name;
+  this.gpa = gpa;
+  this.year = year;
+  this.school = school;
+  this.city = city;
+}
